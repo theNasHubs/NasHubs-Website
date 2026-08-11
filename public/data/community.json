@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "sample": true,
+    "updatedAt": "2026-08-09",
+    "source": "NasHubs community preview"
+  },
+  "stats": [
+    { "id": "users", "value": 12000, "compact": "12K+", "labelVi": "Người dùng hoạt động", "labelEn": "Active users" },
+    { "id": "devices", "value": 38000, "compact": "38K+", "labelVi": "Thiết bị NAS được quản lý", "labelEn": "NAS devices managed" },
+    { "id": "uptime", "value": 99.9, "compact": "99.9%", "labelVi": "Thời gian hoạt động", "labelEn": "Uptime" },
+    { "id": "rating", "value": 4.9, "compact": "4.9★", "labelVi": "Đánh giá App Store", "labelEn": "App Store rating" }
+  ],
+  "locations": [
+    { "id": "hanoi", "cityVi": "Hà Nội", "cityEn": "Hanoi", "country": "VN", "users": 740, "devices": 1260, "lat": 21.03, "lon": 105.85 },
+    { "id": "tokyo", "cityVi": "Tokyo", "cityEn": "Tokyo", "country": "JP", "users": 520, "devices": 890, "lat": 35.68, "lon": 139.69 },
+    { "id": "singapore", "cityVi": "Singapore", "cityEn": "Singapore", "country": "SG", "users": 430, "devices": 710, "lat": 1.35, "lon": 103.82 },
+    { "id": "hcm", "cityVi": "TP. HCM", "cityEn": "Ho Chi Minh City", "country": "VN", "users": 980, "devices": 1540, "lat": 10.82, "lon": 106.63 },
+    { "id": "sydney", "cityVi": "Sydney", "cityEn": "Sydney", "country": "AU", "users": 310, "devices": 470, "lat": -33.87, "lon": 151.21 },
+    { "id": "saopaulo", "cityVi": "São Paulo", "cityEn": "São Paulo", "country": "BR", "users": 290, "devices": 440, "lat": -23.55, "lon": -46.63 }
+  ],
+  "reviews": [
+    { "id": "minh", "quoteVi": "Cuối cùng tôi cũng thấy toàn bộ NAS của mình trong một màn hình. Quá tiện.", "quoteEn": "Finally I can see every NAS in one place. Daily management is effortless.", "author": "Minh T.", "roleVi": "Người dùng Pro", "roleEn": "Pro user", "country": "VN", "useCase": "Homelab", "nas": "Custom 4-bay", "miniApps": ["Immich", "Pi-hole"], "avatar": "MT" },
+    { "id": "david", "quoteVi": "Truy cập từ xa qua Tailscale hoạt động ngay từ lần đầu. Không cần mở port nữa.", "quoteEn": "Remote access over Tailscale worked on the first try. No more open ports.", "author": "David K.", "roleVi": "IT Freelancer", "roleEn": "IT freelancer", "country": "US", "useCase": "IT", "nas": "TrueNAS SCALE", "miniApps": ["Tailscale", "Grafana"], "avatar": "DK" },
+    { "id": "linh", "quoteVi": "Bảo mật tốt, không qua máy chủ trung gian — đúng kiểu tôi cần.", "quoteEn": "Strong security with no middleman server — exactly what I needed.", "author": "Linh N.", "roleVi": "Quản trị hệ thống", "roleEn": "System administrator", "country": "VN", "useCase": "Backup", "nas": "ZFS 8-bay", "miniApps": ["Restic", "MinIO"], "avatar": "LN" },
+    { "id": "ana", "quoteVi": "Jellyfin và thư viện ảnh gia đình giờ nằm trong cùng một trải nghiệm.", "quoteEn": "Jellyfin and our family photo library now live in one experience.", "author": "Ana R.", "roleVi": "Nhà sáng tạo", "roleEn": "Creator", "country": "BR", "useCase": "Media", "nas": "DIY NAS", "miniApps": ["Jellyfin", "Immich"], "avatar": "AR" },
+    { "id": "kenji", "quoteVi": "Tôi quản lý backup của studio mà không phải nhớ thêm một giao diện quản trị.", "quoteEn": "I manage studio backups without learning another admin interface.", "author": "Kenji S.", "roleVi": "Nhiếp ảnh gia", "roleEn": "Photographer", "country": "JP", "useCase": "Backup", "nas": "6-bay NAS", "miniApps": ["Kopia", "S3"], "avatar": "KS" },
+    { "id": "sarah", "quoteVi": "Agent cho team tôi một cách triển khai service nhất quán trên nhiều loại NAS.", "quoteEn": "The Agent gives our team one consistent way to deploy services across NAS brands.", "author": "Sarah M.", "roleVi": "Kỹ sư nền tảng", "roleEn": "Platform engineer", "country": "AU", "useCase": "IT", "nas": "Mixed fleet", "miniApps": ["Docker", "Uptime Kuma"], "avatar": "SM" }
+  ]
+}
