@@ -3,9 +3,10 @@ import { ArrowLeft, Lock, ShieldCheck } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 // Bilingual legal content (Privacy Policy + Security Commitment). Kept inline so
-// it doesn't bloat the app translations file. This page is the public URL you
-// declare in App Store Connect / Google Play as the privacy policy.
-const CONTENT = {
+// it doesn't bloat the app translations file. The /privacy route is the public
+// URL you declare in App Store Connect / Google Play; the same content is also
+// shown in a popup from the nav (see LegalModal.jsx).
+export const CONTENT = {
   vn: {
     updated: "Cập nhật lần cuối: 08/2026",
     back: "Về trang chủ",
@@ -60,51 +61,59 @@ const CONTENT = {
   },
 };
 
+/** Shared body used by both the /privacy route page and the nav popup. */
+export function LegalContent({ lang }) {
+  const c = CONTENT[lang === "en" ? "en" : "vn"];
+  return (
+    <>
+      <section id="privacy" className="scroll-mt-24">
+        <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{c.privacy.title}</h2>
+        <p className="mt-1 text-sm text-ink-muted">{c.updated}</p>
+        <div className="mt-6 space-y-6">
+          {c.privacy.sections.map(([title, body]) => (
+            <div key={title}>
+              <h3 className="text-lg font-bold text-emerald-500">{title}</h3>
+              <p className="mt-1.5 leading-relaxed text-ink/85">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="security" className="mt-12 scroll-mt-24 border-t border-border pt-10">
+        <div className="flex items-center gap-2.5">
+          <ShieldCheck className="h-6 w-6 text-emerald-500" />
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{c.security.title}</h2>
+        </div>
+        <div className="mt-6 space-y-4">
+          {c.security.items.map(([title, body]) => (
+            <div key={title} className="flex gap-4 rounded-2xl border border-border bg-surface-2/60 p-5">
+              <Lock className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
+              <div>
+                <h4 className="font-bold">{title}</h4>
+                <p className="mt-1 leading-relaxed text-ink/80">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+/** Full-page /privacy route — its own scroll container (the app locks body scroll). */
 export default function Legal() {
   const { lang } = useI18n();
   const c = CONTENT[lang === "en" ? "en" : "vn"];
-
   return (
-    <main className="min-h-screen bg-surface text-ink">
+    <main className="h-screen overflow-y-auto bg-surface text-ink">
       <div className="mx-auto w-full max-w-3xl px-6 py-14">
         <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-ink-muted transition-colors hover:text-emerald-500">
           <ArrowLeft className="h-4 w-4" />
           {c.back}
         </Link>
-
-        {/* Privacy Policy */}
-        <section id="privacy" className="mt-8 scroll-mt-24">
-          <h1 className="text-3xl font-extrabold tracking-tight">{c.privacy.title}</h1>
-          <p className="mt-1 text-sm text-ink-muted">{c.updated}</p>
-          <div className="mt-8 space-y-7">
-            {c.privacy.sections.map(([title, body]) => (
-              <div key={title}>
-                <h2 className="text-lg font-bold text-emerald-500">{title}</h2>
-                <p className="mt-1.5 leading-relaxed text-ink/85">{body}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Security Commitment */}
-        <section id="security" className="mt-14 scroll-mt-24 border-t border-border pt-12">
-          <div className="flex items-center gap-2.5">
-            <ShieldCheck className="h-6 w-6 text-emerald-500" />
-            <h1 className="text-3xl font-extrabold tracking-tight">{c.security.title}</h1>
-          </div>
-          <div className="mt-8 space-y-5">
-            {c.security.items.map(([title, body]) => (
-              <div key={title} className="flex gap-4 rounded-2xl border border-border bg-surface-2/60 p-5">
-                <Lock className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
-                <div>
-                  <h3 className="font-bold">{title}</h3>
-                  <p className="mt-1 leading-relaxed text-ink/80">{body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
+        <div className="mt-8">
+          <LegalContent lang={lang} />
+        </div>
         <footer className="mt-16 border-t border-border pt-6 text-center text-xs text-ink-muted">
           © {new Date().getFullYear()} NasHubs · duconmang43@gmail.com
         </footer>

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "@/lib/theme";
 import { useI18n } from "@/lib/i18n";
+import LegalModal from "@/components/nashubs/LegalModal";
 
 export default function AppNav() {
   const { theme, toggle: toggleTheme } = useTheme();
   const { lang, setLang, t } = useI18n();
+  const [legalOpen, setLegalOpen] = useState(false);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
@@ -31,6 +33,9 @@ export default function AppNav() {
             <a href="#gallery" className="hover:text-emerald-500 transition-colors">{t.nav.features}</a>
             <a href="#security" className="hover:text-emerald-500 transition-colors">{t.nav.security}</a>
             <a href="#community" className="hover:text-emerald-500 transition-colors">{t.nav.community}</a>
+            <button type="button" onClick={() => setLegalOpen(true)} className="hover:text-emerald-500 transition-colors">
+              {lang === "en" ? "Privacy" : "Riêng tư"}
+            </button>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -70,6 +75,7 @@ export default function AppNav() {
           </div>
         </div>
       </div>
+      <LegalModal open={legalOpen} onClose={() => setLegalOpen(false)} />
     </header>
   );
 }
