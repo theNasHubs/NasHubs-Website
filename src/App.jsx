@@ -4,6 +4,7 @@ import { I18nProvider } from '@/lib/i18n';
 import PageNotFound from '@/lib/PageNotFound';
 import { ThemeProvider } from '@/lib/theme';
 import Home from '@/pages/Home';
+import Legal from '@/pages/Legal';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/privacy" element={<Legal />} />
+            <Route path="/security" element={<Legal />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Router>
