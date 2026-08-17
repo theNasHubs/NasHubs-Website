@@ -41,7 +41,7 @@ export default function SingleStageExperience() {
 
   useEffect(() => {
     let live = true;
-    fetch("/data/community.json").then((response) => response.json()).then((data) => { if (live) setCommunity(data); }).catch(() => {});
+    fetch(`${import.meta.env.BASE_URL}data/community.json`).then((response) => response.json()).then((data) => { if (live) setCommunity(data); }).catch(() => {});
     return () => { live = false; };
   }, []);
 
